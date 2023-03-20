@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const IntroHomeContainer = styled.div`
+export const IntroHomeContainer = styled.section`
     position: relative;
     backdrop-filter: blur(7rem);
     z-index: 1;

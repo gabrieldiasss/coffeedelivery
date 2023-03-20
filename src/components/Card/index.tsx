@@ -34,8 +34,6 @@ export function Card() {
                         <ShoppingCart size={24} weight="fill" />
                     </Icon>
                 </div>
-
-
             </FooterCardCoffee>
         </CardCoffeeContainer>
     )
