@@ -20,7 +20,7 @@ export function Header() {
                         </Location>
 
                         <Icon>
-                            <ShoppingCart size={24} />
+                            <ShoppingCart size={24} weight="fill" />
                         </Icon>
                     </ul>
                 </nav>
