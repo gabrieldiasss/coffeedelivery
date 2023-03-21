@@ -20,16 +20,16 @@ export const GlobalStyle = createGlobalStyle`
     h1, h2, strong {
         font-weight: 800;
         font-family: 'Baloo 2', 'sans-serif';
-        color: ${props => props.theme['gray-800']};
+        color: ${(props) => props.theme['gray-800']};
     }
 
     input {
         border: 0;
-        background-color: ${props => props.theme['gray-300']};
+        background-color: ${(props) => props.theme['gray-300']};
         border-radius: 4px;
 
         &::placeholder {
-            color: ${props => props.theme['gray-600']};
+            color: ${(props) => props.theme['gray-600']};
         }
 
         :focus {

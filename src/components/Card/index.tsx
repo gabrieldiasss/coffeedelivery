@@ -1,35 +1,41 @@
 import { ShoppingCart } from 'phosphor-react'
 import Expresso from '../../assets/Expresso.svg'
 import { CounterCart } from '../CounterCart'
-import { CardCoffeeContainer, CoffeeTag, CoffeeTagList, FooterCardCoffee, HeaderCardCoffee, Icon, Price } from './style'
+import {
+	CardCoffeeContainer,
+	CoffeeTag,
+	CoffeeTagList,
+	FooterCardCoffee, 
+	HeaderCardCoffee, Icon, Price
+} from './style'
 
 export function Card() {
 
-    return (
-        <CardCoffeeContainer>
-            <HeaderCardCoffee>
-                <img src={Expresso} alt="" />
-                <CoffeeTagList>
-                    <CoffeeTag>TRADICIONAL</CoffeeTag>
-                </CoffeeTagList>
-                <strong>Expresso Tradicional</strong>
-            </HeaderCardCoffee>
+	return (
+		<CardCoffeeContainer>
+			<HeaderCardCoffee>
+				<img src={Expresso} alt="" />
+				<CoffeeTagList>
+					<CoffeeTag>TRADICIONAL</CoffeeTag>
+				</CoffeeTagList>
+				<strong>Expresso Tradicional</strong>
+			</HeaderCardCoffee>
 
-            <p>O tradicional café feito com áu quente e grãos moídos</p>
+			<p>O tradicional café feito com áu quente e grãos moídos</p>
 
-            <FooterCardCoffee>
-                <Price>
-                    <span>R$</span> <strong>9,90</strong>
-                </Price>
+			<FooterCardCoffee>
+				<Price>
+					<span>R$</span> <strong>9,90</strong>
+				</Price>
 
-                <div>
-                    <CounterCart />
+				<div>
+					<CounterCart />
 
-                    <Icon>
-                        <ShoppingCart size={24} weight="fill" />
-                    </Icon>
-                </div>
-            </FooterCardCoffee>
-        </CardCoffeeContainer>
-    )
+					<Icon>
+						<ShoppingCart size={24} weight="fill" />
+					</Icon>
+				</div>
+			</FooterCardCoffee>
+		</CardCoffeeContainer>
+	)
 }
