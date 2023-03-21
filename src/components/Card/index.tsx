@@ -1,6 +1,7 @@
-import { IconContext, Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { ShoppingCart } from 'phosphor-react'
 import Expresso from '../../assets/Expresso.svg'
-import { CardCoffeeContainer, CoffeeTag, CoffeeTagList, CounterCart, FooterCardCoffee, HeaderCardCoffee, Icon, Price } from './style'
+import { CounterCart } from '../CounterCart'
+import { CardCoffeeContainer, CoffeeTag, CoffeeTagList, FooterCardCoffee, HeaderCardCoffee, Icon, Price } from './style'
 
 export function Card() {
 
@@ -22,13 +23,7 @@ export function Card() {
                 </Price>
 
                 <div>
-                    <CounterCart>
-                        <IconContext.Provider value={{ color: '#8047F8', size: '20px' }} >
-                            <button type='button' ><Minus /></button>
-                            1
-                            <button type='button' ><Plus /></button>
-                        </IconContext.Provider>
-                    </CounterCart>
+                    <CounterCart />
 
                     <Icon>
                         <ShoppingCart size={24} weight="fill" />

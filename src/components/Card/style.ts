@@ -79,21 +79,6 @@ export const Price = styled.div`
 
 `
 
-export const CounterCart = styled.div`
-    display: flex;
-    align-items: flex-center;
-    background-color: ${props => props.theme['gray-300']};
-    padding: 0.5rem 0.5rem;
-
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-
-    button[type=button] {
-        background: none;
-        border: 0;
-    }
-`
-
 export const Icon = styled.div`
     display: flex;
     align-items: center;

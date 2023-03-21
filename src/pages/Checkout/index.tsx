@@ -1,7 +1,6 @@
-import { Bank, CreditCard, CurrencyDollar, IconContext, MapPinLine, Minus, Money, Plus, Trash } from "phosphor-react";
-import { CheckoutContainer, CoffeeCart, CoffeeCartActions, CoffeeCartElements, CoffeeCartPrice, CoffeeSelected, CompleteOrder, ConfirmOrder, CounterCart, DeleteCoffeeCart, DeliveryAdress, DeliveryAdressInputs, FormOfPayment, FormOfPaymentMethods, Freight, ShoppingCart, TotalItems, TotalOrder } from "./styles";
-
-import Expresso from '../../assets/Expresso.svg'
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import { CoffeeShoppingCart } from "./components/CoffeeShoppingCart";
+import { CheckoutContainer, CompleteOrder, DeliveryAdress, DeliveryAdressInputs, FormOfPayment, FormOfPaymentMethods } from "./styles";
 
 export function Checkout() {
 
@@ -11,7 +10,6 @@ export function Checkout() {
                 <h2>Complete seu pedido</h2>
 
                 <DeliveryAdress>
-
                     <header>
                         <MapPinLine size={24} />
 
@@ -22,19 +20,12 @@ export function Checkout() {
                     </header>
 
                     <DeliveryAdressInputs>
-
                         <input type="text" placeholder="CEP" />
-
                         <input type="text" placeholder="Rua" className="street" />
-
                         <input type="number" placeholder="Número" className="number" />
-
                         <input type="text" placeholder="Complemento" className="complement" />
-
                         <input type="text" placeholder="Bairro" className="neighborhood" />
-
                         <input type="text" placeholder="Cidade" className="city" />
-
                         <input type="text" placeholder="UF" className="uf" />
                     </DeliveryAdressInputs>
                 </DeliveryAdress>
@@ -65,60 +56,7 @@ export function Checkout() {
                 </FormOfPayment>
             </CompleteOrder>
 
-            <CoffeeSelected>
-                <h2>Cafés selecionados</h2>
-
-                <ShoppingCart>
-                    <CoffeeCart>
-                        <CoffeeCartElements>
-                            <img src={Expresso} alt="" />
-
-                            <div>
-                                Expresso Tradicional
-
-                                <CoffeeCartActions>
-                                    <CounterCart>
-                                        <IconContext.Provider value={{ color: '#8047F8', size: '20px' }} >
-                                            <button type='button' ><Minus /></button>
-                                            1
-                                            <button type='button' ><Plus /></button>
-                                        </IconContext.Provider>
-                                    </CounterCart>
-
-                                    <DeleteCoffeeCart type="button" >
-                                        <Trash /> REMOVER
-                                    </DeleteCoffeeCart>
-                                </CoffeeCartActions>
-                            </div>
-                        </CoffeeCartElements>
-
-                        <CoffeeCartPrice>
-                            R$ 19,80
-                        </CoffeeCartPrice>
-                    </CoffeeCart>
-
-                    
-
-                    <ConfirmOrder>
-                        <TotalItems>
-                            <span>Total de itens</span>
-                            <span>R$ 29,70</span>
-                        </TotalItems>
-
-                        <Freight>
-                            <span>Entrega</span>
-                            <span>R$ 3,50</span>
-                        </Freight>
-
-                        <TotalOrder>
-                            <b>Total</b>
-                            <b>R$ 33,20</b>
-                        </TotalOrder>
-
-                        <button type="submit">CONFIRMAR PEDIDO</button>
-                    </ConfirmOrder>
-                </ShoppingCart>
-            </CoffeeSelected>
+            <CoffeeShoppingCart />
         </CheckoutContainer>
     )
 }
