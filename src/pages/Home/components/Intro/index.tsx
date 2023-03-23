@@ -1,7 +1,7 @@
 import { Coffee, Cube, ShoppingCart, Timer } from "phosphor-react";
 import { IntroHomeContainer, IntroHomeContent, IntroHomeItems, ItemBox, ItemCoffee, ItemShopping, ItemTimer } from "./styles";
 
-import ImgCoffe from '../../../../assets/coffee-home.svg'
+import ImgCoffe from '../../../../assets/coffee-home.png'
 
 export function Intro() {
 

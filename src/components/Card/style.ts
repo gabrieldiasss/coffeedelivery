@@ -37,14 +37,19 @@ export const CoffeeTagList = styled.div`
   display: flex;
   justify-content: center;
 
-  margin: 1rem 4rem;
+  gap: 0.5rem;
+
+  margin-top: 1rem;
 `
 
 export const CoffeeTag = styled.div`
   background-color: ${(props) => props.theme['yellow-200']};
   color: ${(props) => props.theme['yellow-900']};
   border-radius: 100px;
+  font-weight: 700;
   padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 `
 
 export const FooterCardCoffee = styled.footer`
