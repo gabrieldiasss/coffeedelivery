@@ -1,55 +1,48 @@
-import { Trash } from "phosphor-react";
-import { CoffeeCart, CoffeeCartActions, CoffeeCartElements, CoffeeCartPrice, ConfirmOrder, DeleteCoffeeCart, Freight, ShoppingCart, TotalItems, TotalOrder } from "./styles";
-import Expresso from '../../../../assets/Expresso.svg'
-import { CounterCart } from "../../../../components/CounterCart";
+import { ConfirmOrder, Freight, ShoppingCart, TotalItems, TotalOrder } from "./styles";
+import { useContext } from "react";
+import { CoffeeCartContext } from "../../../../contexts/CoffeeCartContext";
+import { CoffeeCartCard } from "../CoffeeCartCard";
+import { formatPrice } from "../../../../utils/formatPrice";
+
+const DELIVERY_PRICE = 3.5
 
 export function CoffeeShoppingCart() {
+
+    const { coffeesCart, cartItemsTotal} = useContext(CoffeeCartContext)
+    const cartTotal = DELIVERY_PRICE + cartItemsTotal
+
+    const formattedItemsTotal = formatPrice(cartItemsTotal)
+    const formattedCartTotal = formatPrice(cartTotal)
+    const formattedDelivery = formatPrice(DELIVERY_PRICE)
+
+    const cartQuantity = coffeesCart.length
 
     return (
         <aside>
             <h2>Cafés selecionados</h2>
 
             <ShoppingCart>
-                <CoffeeCart>
-                    <CoffeeCartElements>
-                        <img src={Expresso} alt="" />
-
-                        <div>
-                            Expresso Tradicional
-
-                            <CoffeeCartActions>
-
-                                <CounterCart />
-                                
-                                <DeleteCoffeeCart type="button">
-                                    <Trash /> REMOVER
-                                </DeleteCoffeeCart>
-                            </CoffeeCartActions>
-                        </div>
-                    </CoffeeCartElements>
-
-                    <CoffeeCartPrice>
-                        R$ 19,80
-                    </CoffeeCartPrice>
-                </CoffeeCart>
+                {coffeesCart.map((coffee) => (
+                    <CoffeeCartCard coffee={coffee} />
+                ))}
 
                 <ConfirmOrder>
                     <TotalItems>
                         <span>Total de itens</span>
-                        <span>R$ 29,70</span>
+                        <span>R$ {formattedItemsTotal}</span>
                     </TotalItems>
 
                     <Freight>
                         <span>Entrega</span>
-                        <span>R$ 3,50</span>
+                        <span>R$ {formattedDelivery}</span>
                     </Freight>
 
                     <TotalOrder>
                         <b>Total</b>
-                        <b>R$ 33,20</b>
+                        <b>R$ {formattedCartTotal}</b>
                     </TotalOrder>
 
-                    <button type="submit">CONFIRMAR PEDIDO</button>
+                    <button disabled={cartQuantity <= 0} type="submit">CONFIRMAR PEDIDO</button>
                 </ConfirmOrder>
             </ShoppingCart>
         </aside>

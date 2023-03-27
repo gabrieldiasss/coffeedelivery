@@ -1,12 +1,23 @@
 import { Minus, Plus } from "phosphor-react";
-import { CounterCartContainer } from "./styles";
+import { CounterCartContainer, IconWrapper } from "./styles";
 
-export function CounterCart() {
+interface CounterProps {
+    quantity: number | undefined
+    onIncrease: () => void
+    onDecrease: () => void
+}
+
+export function CounterCart({ quantity, onIncrease, onDecrease }: CounterProps) {
+
     return (
         <CounterCartContainer>
-                <button type='button' ><Minus /></button>
-                1
-                <button type='button' ><Plus /></button>
+            <IconWrapper disabled={quantity <= 1} type='button'>
+                <Minus onClick={onDecrease} />
+            </IconWrapper>
+            {quantity}
+            <IconWrapper type='button'>
+                <Plus onClick={onIncrease} />
+            </IconWrapper>
         </CounterCartContainer>
     )
 }

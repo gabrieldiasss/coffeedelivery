@@ -11,6 +11,18 @@ export const CounterCartContainer = styled.div`
 
   gap: 0.5rem;
 
+  
+  input {
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    color: ${props => props.theme['gray-300']};
+    &:focus {
+      outline: none;
+    }
+  }
+
   button[type='button'] {
     background: none;
     border: 0;
@@ -19,4 +31,13 @@ export const CounterCartContainer = styled.div`
       color: ${(props) => props.theme['purple-500']};
     }
   }
+`
+
+export const IconWrapper = styled.button`
+  
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
 `

@@ -4,16 +4,20 @@ import { GlobalStyle } from './styles/global'
 import { Router } from './Router'
 import { BrowserRouter } from 'react-router-dom'
 import { Wrapper } from './styles'
+import { CoffeeCartProvider } from './contexts/CoffeeCartContext'
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <BrowserRouter>
-        <Wrapper>
-          <Router />
-        </Wrapper>
-      </BrowserRouter>
+
+      <CoffeeCartProvider>
+        <BrowserRouter>
+          <Wrapper>
+            <Router />
+          </Wrapper>
+        </BrowserRouter>
+      </CoffeeCartProvider>
     </ThemeProvider>
   )
 }

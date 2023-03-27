@@ -39,7 +39,7 @@ export const CoffeeTagList = styled.div`
 
   gap: 0.5rem;
 
-  margin-top: 1rem;
+  margin: 1rem 0 1.25rem 0;
 `
 
 export const CoffeeTag = styled.div`
