@@ -17,4 +17,6 @@ export const defaultTheme = {
   'purple-900': '#4B2995',
   'purple-500': '#8047F8',
   'purple-200': '#EBE5F9',
+
+  "base-error": "#f84747",
 } as const
