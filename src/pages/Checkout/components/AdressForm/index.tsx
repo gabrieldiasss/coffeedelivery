@@ -15,9 +15,11 @@ export function AdressForm() {
 
     const { errors } = formState as unknown as ErrorsType
 
+    console.log(!!errors)
+
     return (
         <DeliveryAdressForm>
-            <InputWrapper className="cep" >
+            <InputWrapper className="cep">
                 <input placeholder="CEP" {...register("cep")} />
                 <p>{errors.cep?.message}</p>
             </InputWrapper>

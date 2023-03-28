@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -31,6 +31,10 @@ export const GlobalStyle = createGlobalStyle`
         &::placeholder {
             color: ${(props) => props.theme['gray-600']};
         }
+
+        border: 2px solid ${(props) => props.hasError ? props.theme['gray-300'] : props.theme['base-error']};
+
+        ${(props) => props.hasError && css`border-color: ${props.theme['base-error']};`}
 
         :focus {
             outline: 0;
