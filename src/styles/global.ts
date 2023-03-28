@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme['gray-800']};
     }
 
-    input {
+  /*   input {
         border: 0;
         background-color: ${(props) => props.theme['gray-300']};
         border-radius: 4px;
@@ -32,16 +32,11 @@ export const GlobalStyle = createGlobalStyle`
             color: ${(props) => props.theme['gray-600']};
         }
 
-        border: 2px solid ${(props) => props.hasError ? props.theme['gray-300'] : props.theme['base-error']};
-
-        ${(props) => props.hasError && css`border-color: ${props.theme['base-error']};`}
-
         :focus {
-            outline: 0;
-            box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-900']};
+            
         }
     }
-
+ */
     body, input, textarea, button {
         font: 400 1rem Roboto, 'sans-serif';
     }

@@ -1,5 +1,6 @@
 import { DeliveryAdressForm, InputWrapper } from "./styles";
 import { useFormContext } from 'react-hook-form'
+import { Input } from "../../../../components/Input";
 
 interface ErrorsType {
     errors: {
@@ -15,44 +16,41 @@ export function AdressForm() {
 
     const { errors } = formState as unknown as ErrorsType
 
-    console.log(!!errors)
-
     return (
         <DeliveryAdressForm>
-            <InputWrapper className="cep">
-                <input placeholder="CEP" {...register("cep")} />
-                <p>{errors.cep?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="CEP"
+                {...register("cep")}
+            />
 
-            <InputWrapper className="street" >
-                <input placeholder="Rua" {...register("street")} />
-                <p>{errors.street?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="Rua"
+                {...register("street")}
+            />
 
-            <InputWrapper className="number">
-                <input placeholder="Número" {...register("number")} />
-                <p>{errors.number?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="Número"
+                {...register("number")}
+            />
+            <Input
+                placeholder="Complemento"
+                {...register("complement")}
+            />
 
-            <InputWrapper className="complement" >
-                <input placeholder="Complemento" {...register("complement")} />
-                <p>{errors.complement?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="Bairro"
+                {...register("neighborhood")}
+            />
 
-            <InputWrapper className="neighborhood">
-                <input placeholder="Bairro" {...register("neighborhood")} />
-                <p>{errors.neighborhood?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="Cidade"
+                {...register("city")}
+            />
 
-            <InputWrapper className="city">
-                <input placeholder="Cidade" {...register("city")} />
-                <p>{errors.city?.message}</p>
-            </InputWrapper>
-
-            <InputWrapper className="uf">
-                <input placeholder="UF" {...register("uf")} />
-                <p>{errors.uf?.message}</p>
-            </InputWrapper>
+            <Input
+                placeholder="Cidade"
+                {...register("uf")}
+            />
         </DeliveryAdressForm>
     )
 }
