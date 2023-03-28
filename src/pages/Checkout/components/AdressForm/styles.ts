@@ -20,7 +20,7 @@ export const DeliveryAdressForm = styled.div`
   grid-template-columns: 200px 1fr 80px;
 
   grid-template-areas:
-    'cep cep cep'
+    'cep oi oi'
     'street street street'
     'number complement complement'
     'neighborhood city uf';

@@ -7,11 +7,6 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    :focus {
-        outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['purple-500']};
-    }
-
     body {
         background-color: ${(props) => props.theme['gray-100']};
         -webkit-font-smoothing: antialiased;
@@ -23,20 +18,6 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme['gray-800']};
     }
 
-  /*   input {
-        border: 0;
-        background-color: ${(props) => props.theme['gray-300']};
-        border-radius: 4px;
-
-        &::placeholder {
-            color: ${(props) => props.theme['gray-600']};
-        }
-
-        :focus {
-            
-        }
-    }
- */
     body, input, textarea, button {
         font: 400 1rem Roboto, 'sans-serif';
     }

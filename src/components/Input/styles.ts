@@ -1,10 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const InputStyleContainer = styled.input`
-    border: 0;
-   height: 2.625rem;
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;position: relative;
+
+  > p {
+    color: ${props => props.theme['base-error']};
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+`
+
+interface InputStyleContainerProps {
+  hasError: boolean
+}
+
+export const InputStyleContainer = styled.div<InputStyleContainerProps>`
+  height: 2.625rem;
   border-radius: 4px;
-  border: 1px solid ${props => props.theme['gray-400']};
+  border: 2px solid ${props => props.theme['gray-400']};
   background-color: ${props => props.theme['gray-300']};
   display: flex;
   align-items: center;
@@ -14,9 +29,33 @@ export const InputStyleContainer = styled.input`
   justify-content: space-between;
   overflow: hidden;
 
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-900']};
+  &:focus-within {
+    border-color: ${props => props.theme['yellow-900']};
   }
 
+  ${(props) => props.hasError  &&css`border-color: ${props.theme['base-error']};`}
+`
+
+export const InputStyled = styled.input`
+  flex: 1;
+  background: none;
+  border: none;
+
+  outline: 0;
+
+  padding: 0 0.75rem;
+  height: 100%;
+  font-size: 0.75rem;
+  color: ${props => props.theme['gray-700']};
+
+  &::placeholder {
+    color: ${props => props.theme['gray-600']};
+  }
+`
+
+export const RightText = styled.p`
+  font-size: 0.75rem;
+  margin-right: 0.75rem;
+  font-style: italic;
+  color: ${props => props.theme['gray-600']};
 `
