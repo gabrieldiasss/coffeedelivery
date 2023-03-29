@@ -11,7 +11,6 @@ export const PaymentMethodInput = forwardRef<
   PaymentMethodInputProps
 >(({ id, icon, label, ...props }, ref) => {
 
-
   return (
     <PaymentMethodContainer>
       <input id={id} type="radio" {...props} name="paymentMethod" ref={ref} />

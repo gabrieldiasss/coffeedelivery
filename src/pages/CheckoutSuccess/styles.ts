@@ -7,7 +7,7 @@ export const OrderConfirmedContainer = styled.div`
   margin-top: 5rem;
 
   h1 {
-    color: ${({ theme }) => theme.colors["brand-yellow-dark"]};
+    color: ${({ theme }) => theme["yellow-900"]};
   }
 
   > section {
@@ -21,7 +21,7 @@ export const OrderDetailsContainer = styled.div`
   padding: 2.5rem;
   border-radius: 6px 36px 6px 36px;
   position: relative;
-  background: ${({ theme }) => theme.colors["base-background"]};
+  background: ${({ theme }) => theme["gray-100"]};
   min-width: 32rem;
   display: flex;
   flex-direction: column;
