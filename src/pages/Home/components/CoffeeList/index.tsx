@@ -29,7 +29,6 @@ export function CoffeeListComponent() {
                 {coffees.map((coffee: Coffees) => (
                     <Card key={coffee.id} coffee={coffee} />
                 ))}
-                
             </CoffeeList>
         </CoffeeListContainer>
     )

@@ -26,6 +26,11 @@ export const ConfirmOrder = styled.footer`
       transition: 0.2s;
       background-color: ${(props) => props.theme['yellow-900']};
     }
+
+    &:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
   }
 `
 

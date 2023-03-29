@@ -2,11 +2,12 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { produce } from "immer"
 
 interface CoffeeCartContextType {
-    coffeesCart: Coffee[],
-    addCoffeeCart: (coffee: Coffee) => void
+    coffeesCart: CoffeeItem[],
+    addCoffeeCart: (coffee: CoffeeItem) => void
     changeCartItemQuantity: (coffeeCartId: number, type: 'increase' | 'decrease') => void
     removeCoffeeCart: (coffeeCartId: number) => void
     cartItemsTotal: number
+    cleanCart: () => void
 }
 
 export interface Coffee {
@@ -16,7 +17,10 @@ export interface Coffee {
     description: string
     photo: string
     price: number
-    quantity: number | undefined
+}
+
+export interface CoffeeItem extends Coffee {
+    quantity: number
 }
 
 interface CoffeeCartContextProps {
@@ -29,7 +33,7 @@ export const CoffeeCartContext = createContext({} as CoffeeCartContextType)
 
 export function CoffeeCartProvider({ children }: CoffeeCartContextProps) {
 
-    const [coffeesCart, setCoffeesCart] = useState<Coffee[]>(() => {
+    const [coffeesCart, setCoffeesCart] = useState<CoffeeItem[]>(() => {
         const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY)
 
         if(storedCartItems) {
@@ -39,9 +43,13 @@ export function CoffeeCartProvider({ children }: CoffeeCartContextProps) {
         return []
     })
 
-    function addCoffeeCart(coffee: Coffee) {
+    function cleanCart() {
+        setCoffeesCart([])
+    }
 
-        const coffeeExistsInCart = coffeesCart.findIndex((coffees: Coffee) => coffees.id === coffee.id)
+    function addCoffeeCart(coffee: CoffeeItem) {
+
+        const coffeeExistsInCart = coffeesCart.findIndex((coffees: CoffeeItem) => coffees.id === coffee.id)
 
         const newCart = produce(coffeesCart, (draft) => {
             if (coffeeExistsInCart < 0) {
@@ -53,6 +61,8 @@ export function CoffeeCartProvider({ children }: CoffeeCartContextProps) {
 
         setCoffeesCart(newCart)
     }
+
+    console.log(coffeesCart)
 
     function changeCartItemQuantity(coffeeCartId: number, type: 'increase' | 'decrease') {
         const newCart = produce(coffeesCart, (draft) => {
@@ -90,7 +100,7 @@ export function CoffeeCartProvider({ children }: CoffeeCartContextProps) {
     }, [coffeesCart])
 
     return (
-        <CoffeeCartContext.Provider value={{ coffeesCart, addCoffeeCart, changeCartItemQuantity, removeCoffeeCart, cartItemsTotal }} >
+        <CoffeeCartContext.Provider value={{ coffeesCart, addCoffeeCart, changeCartItemQuantity, removeCoffeeCart, cartItemsTotal, cleanCart }} >
             {children}
         </CoffeeCartContext.Provider>
     )
